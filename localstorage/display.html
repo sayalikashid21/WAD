@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Data Display</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <style>
+    body {
+      display: fixed;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding-top: 20px;
+      background: url(https://i.icanvas.com/JGL363?d=2&sh=h&p=1&bg=g&t=1648742039);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .container {
+      max-width: 420px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+      margin-top: 20px;
+      border: 2px solid rgba(255, 255, 255, .2);
+      backdrop-filter: blur(10px);
+      color: #0a0a0a;
+      padding: 30px 40px;
+      background: transparent;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    button {
+      margin: auto;
+      margin-left: 110px;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>User Registration Data</h2>
+
+    <div id="userData"></div>
+
+    <p> <button onclick="clearCounting()" type="button">Clear data</button></p>
+  </div>
+  <script>
+    // Retrieve user data from localStorage
+    var users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Display user data
+    var userDataElement = document.getElementById('userData');
+    if (users.length === 0) {
+      userDataElement.innerHTML = '<p>No user data available.</p>';
+    } else {
+      var userDataHTML = '<ul>';
+      users.forEach(function (user) {
+        userDataHTML += '<li><strong>Name:</strong> ' + user.fname + " " + user.lname + '<br>';
+        userDataHTML += '<li><strong>Username:</strong> ' + user.username + '<br>';
+        userDataHTML += '<li><strong>Email:</strong> ' + user.email + '<br>';
+        userDataHTML += '<li><strong>Date:</strong> ' + user.date + '<br>';
+        userDataHTML += '<li><strong>Blood Group:</strong> ' + user.bloodgrp + '<br>';
+        userDataHTML += '<li><strong>Gender:</strong> ' + user.gender + '<br>';
+        userDataHTML += '<li><strong>Password:</strong> ' + user.password + '</li><br>';
+      });
+      userDataHTML += '</ul>';
+      userDataElement.innerHTML = userDataHTML;
+    }
+
+    function clearCounting() {
+      window.localStorage.clear();
+    }
+
+  </script>
+
+</body>
+
+</html>
