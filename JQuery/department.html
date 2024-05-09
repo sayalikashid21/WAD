@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Department Information</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+        .ui-grid-c > div {
+            width: 20%;
+        }
+    </style>
+</head>
+<body>
+
+<div data-role="page" id="home">
+    <div data-role="header">
+        <h1>Departments</h1>
+    </div>
+
+    <div data-role="content">
+        <div class="ui-grid-c">
+            <div class="ui-block-a"><button class="dept-btn" data-dept-id="1">Department 1</button></div>
+            <div class="ui-block-b"><button class="dept-btn" data-dept-id="2">Department 2</button></div>
+            <div class="ui-block-c"><button class="dept-btn" data-dept-id="3">Department 3</button></div>
+            <div class="ui-block-d"><button class="dept-btn" data-dept-id="4">Department 4</button></div>
+            <div class="ui-block-e"><button class="dept-btn" data-dept-id="5">Department 5</button></div>
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="department-info">
+    <div data-role="header">
+        <a href="#" data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-left">Back</a>
+        <h1>Department Information</h1>
+    </div>
+
+    <div data-role="content" id="dept-info-content">
+        <!-- Department information will be displayed here -->
+    </div>
+</div>
+
+<div data-role="page" id="computer-engineering-info">
+    <div data-role="header">
+        <a href="#" data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-left">Back</a>
+        <h1>Computer Engineering Department Information</h1>
+    </div>
+
+    <div data-role="content">
+        <h2>About Computer Engineering Department</h2>
+        <p>Computer Engineering is a discipline that integrates several fields of electrical engineering and computer science required to develop computer hardware and software. It involves designing and testing computer components, such as circuits, processors, memory devices, and networks.</p>
+        
+        <h2>Courses Offered</h2>
+        <ul>
+            <li>Introduction to Computer Engineering</li>
+            <li>Computer Networks</li>
+            <li>Embedded Systems</li>
+            <li>Software Engineering</li>
+            <li>Computer Architecture</li>
+        </ul>
+        
+        <h2>Facilities</h2>
+        <p>The Computer Engineering Department offers state-of-the-art facilities including computer labs equipped with the latest hardware and software, research facilities, and collaboration spaces.</p>
+        
+        <h2>Faculty</h2>
+        <p>The department is staffed with experienced faculty members who are experts in their respective fields. They are dedicated to providing quality education and conducting cutting-edge research.</p>
+    </div>
+</div>
+
+<script>
+    $(document).on("pagecreate", function () {
+        $(".dept-btn").on("click", function () {
+            var deptId = $(this).data("dept-id");
+            if (deptId === 1) {
+                $.mobile.changePage("#computer-engineering-info");
+            } else {
+                var deptInfo = getDepartmentInfo(deptId);
+                $("#dept-info-content").html(deptInfo);
+                $.mobile.changePage("#department-info");
+            }
+        });
+    });
+
+    function getDepartmentInfo(deptId) {
+        var deptInfo = "";
+        switch (deptId) {
+            case 2:
+                deptInfo = "Department 2 information goes here.";
+                break;
+            case 3:
+                deptInfo = "Department 3 information goes here.";
+                break;
+            case 4:
+                deptInfo = "Department 4 information goes here.";
+                break;
+            case 5:
+                deptInfo = "Department 5 information goes here.";
+                break;
+            default:
+                deptInfo = "Department information not available.";
+        }
+        return deptInfo;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Department Grid</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<!-- Department Page -->
+<div data-role="page" id="departmentPage">
+    <div data-role="header">
+        <h1>Departments</h1>
+    </div>
+    <div data-role="content">
+        <div class="ui-grid-d">
+            <div class="ui-block-a"><button class="department-btn" data-department="department1">Department 1</button></div>
+            <div class="ui-block-b"><button class="department-btn" data-department="department2">Department 2</button></div>
+            <div class="ui-block-c"><button class="department-btn" data-department="department3">Department 3</button></div>
+            <div class="ui-block-d"><button class="department-btn" data-department="department4">Department 4</button></div>
+            <div class="ui-block-e"><button class="department-btn" data-department="department5">Department 5</button></div>
+        </div>
+    </div>
+</div>
+
+<!-- Department Information Page -->
+<div data-role="page" id="departmentInfoPage">
+    <div data-role="header">
+        <h1>Department Information</h1>
+    </div>
+    <div data-role="content" id="departmentInfo">
+        <!-- Department information will be displayed here -->
+    </div>
+</div>
+
+<script>
+    $(document).on("pagecreate", function() {
+        $(".department-btn").on("click", function() {
+            var department = $(this).data("department");
+            // Load department information and display on departmentInfoPage
+            $("#departmentInfo").text("Information for " + department);
+            $.mobile.changePage("#departmentInfoPage");
+        });
+    });
+</script>
+
+</body>
+</html>

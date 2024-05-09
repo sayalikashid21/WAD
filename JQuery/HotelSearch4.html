@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hotel Search</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<!-- Search Form -->
+<form>
+    <input id="filterHotel-input" data-type="search" placeholder="Search by location or name">
+</form>
+
+<!-- Hotel List -->
+<table data-role="table" id="hotel-table" data-filter="true" data-input="#filterHotel-input" class="ui-responsive">
+    <thead>
+        <tr>
+            <th data-priority="1">Hotel Name</th>
+            <th data-priority="2">Location</th>
+            <th data-priority="3">Price</th>
+            <th data-priority="4">Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="hotel1_details.html" data-rel="external">Hotel A</a></td>
+            <td>City A</td>
+            <td>$100</td>
+            <td>4.5/5</td>
+        </tr>
+        <tr>
+            <td><a href="hotel2_details.html" data-rel="external">Hotel B</a></td>
+            <td>City B</td>
+            <td>$120</td>
+            <td>4.2/5</td>
+        </tr>
+        <tr>
+            <td><a href="hotel3_details.html" data-rel="external">Hotel C</a></td>
+            <td>City C</td>
+            <td>$150</td>
+            <td>4.7/5</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

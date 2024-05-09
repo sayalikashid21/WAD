@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <title>Hotel</title>
+    <style>
+        .menu-item
+        {
+            margin-bottom: 10px;
+        }
+
+        .menu-item img{
+            width: 200px;
+            height: 200px;
+        }
+
+        .menu-item-details
+        {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div data-role="page" id="home">
+        <div data-role="header" data-position="fixed" data-theme="b">
+            <h1>REstaurant Menus</h1>
+        </div>
+        <div data-role="content">
+            <div class="menu-item">
+                <a href="#burger" data-transition="slide">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.8MJgw49NgTeBLs1BFzqS0gHaHa&pid=Api&P=0&h=220" alt="burger">
+                    <h2>Burger</h2>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="#pizza" data-transition="slide">
+                    <img src="pizzar.jpg" alt="pizza">
+                    <h2>pizza</h2>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="#salad" data-transition="slide">
+                    <img src="salad.jpg" alt="salad">
+                    <h2>Salad</h2>
+                </a>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <h4>&copy; Sayali</h4>
+        </div>
+    </div>
+    <div data-role="page" id="burger">
+        <div data-role="header" data-position="fixed" data-theme="b">
+            <a href="#home" data-role="back" data-icon="back">Back</a>
+            <h5>Burger</h5>
+        </div>
+        <div data-role="content" class="item-menu-details">
+            <img src="burger.jpg" alt="burger">
+            <p>Description of Burger<p>
+        </div>
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <h4>&copy; Sayali</h4>
+        </div>
+    </div>
+    <div data-role="page" id="pizza">
+        <div data-role="header" data-position="fixed" data-theme="b">
+            <a href="#home" data-role="back" data-icon="back">Back</a>
+            <h5>Pizza</h5>
+        </div>
+        <div data-role="content" class="item-menu-details">
+            <img src="burger.jpg" alt="pizzar">
+            <p>Description of pizza<p>
+        </div>
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <h4>&copy; Sayali</h4>
+        </div>
+    </div>
+    <div data-role="page" id="salad">
+        <div data-role="header" data-position="fixed" data-theme="b">
+            <a href="#home" data-role="back" data-icon="back">Back</a>
+            <h5>salad</h5>
+        </div>
+        <div data-role="content" class="item-menu-details">
+            <img src="burger.jpg" alt="burger">
+            <p>Description of Burger<p>
+        </div>
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <h4>&copy; Sayali</h4>
+        </div>
+    </div>
+</body>
+</html>

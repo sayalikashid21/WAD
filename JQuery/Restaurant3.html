@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Restaurant Menu</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<!-- Home Page -->
+<div data-role="page" id="homePage">
+    <div data-role="header">
+        <h1>Restaurant Menu</h1>
+    </div>
+    <div data-role="content">
+        <ul data-role="listview" data-inset="true">
+            <li><a href="#burgerPage">Burger</a></li>
+            <li><a href="#pizzaPage">Pizza</a></li>
+            <li><a href="#pastaPage">Pasta</a></li>
+            <!-- Add more menu items as needed -->
+        </ul>
+    </div>
+</div>
+
+<!-- Burger Page -->
+<div data-role="page" id="burgerPage">
+    <div data-role="header">
+        <h1>Burger</h1>
+    </div>
+    <div data-role="content">
+        <p>Description of Burger</p>
+        <p>Price: $10</p>
+        <!-- Add image of burger if desired -->
+    </div>
+</div>
+
+<!-- Pizza Page -->
+<div data-role="page" id="pizzaPage">
+    <div data-role="header">
+        <h1>Pizza</h1>
+    </div>
+    <div data-role="content">
+        <p>Description of Pizza</p>
+        <p>Price: $12</p>
+        <!-- Add image of pizza if desired -->
+    </div>
+</div>
+
+<!-- Pasta Page -->
+<div data-role="page" id="pastaPage">
+    <div data-role="header">
+        <h1>Pasta</h1>
+    </div>
+    <div data-role="content">
+        <p>Description of Pasta</p>
+        <p>Price: $8</p>
+        <!-- Add image of pasta if desired -->
+    </div>
+</div>
+
+<script>
+    // Initialize jQuery Mobile
+    $(document).on("mobileinit", function() {
+        $.mobile.defaultPageTransition = 'slide';
+    });
+
+    // Refresh listview style
+    $(document).on("pagecontainershow", function() {
+        $("[data-role='listview']").listview("refresh");
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-commerce App</title>
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <style>
+    .ui-grid-c .ui-block-a,
+    .ui-grid-c .ui-block-b,
+    .ui-grid-c .ui-block-c {
+      width: 30.333%;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .product-images {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        margin-bottom: 10px;
+      }
+  
+      .product-images img {
+        width: 240px;
+        height: 200px;
+        margin-right: 10px;
+      }
+  
+      .product-images img:last-child {
+        margin-right: 0;
+      }
+    
+      h2
+      {
+        text-align: center;
+      }
+
+  </style>
+</head>
+<body>
+
+<div data-role="page">
+
+  <div data-role="header">
+    <h1>E-commerce App</h1>
+  </div>
+
+  <div data-role="content">
+    <div class="ui-grid-c" id="product-list">
+      <!-- Product items will be dynamically added here -->
+      <a href="#" class="ui-btn ui-shadow product-item" data-name="Ladies Top" data-price="300" data-image="https://tse2.mm.bing.net/th?id=OIP.wX6w8787bCbD4c9KU2BjsAHaJ3&pid=Api&P=0&h=220">
+        <img src="https://tse2.mm.bing.net/th?id=OIP.wX6w8787bCbD4c9KU2BjsAHaJ3&pid=Api&P=0&h=220" alt="Ladies Top" class="product-img">
+        <h3>Ladies Top</h3>
+        <p>Rs 300</p>
+      </a>
+      <!-- Add more product items here -->
+    </div>
+    <div id="cart-container" class="hidden">
+      <h2>Your Cart</h2>
+      <ul id="cart-items" data-role="listview" data-inset="true">
+        <!-- Cart items will be dynamically added here -->
+      </ul>
+    </div>
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+    <button id="checkout-btn" data-icon="shop" data-iconpos="right">Checkout</button>
+  </div>
+
+</div>
+
+<script>
+  $(document).ready(function() {
+    const cartItems = $('#cart-items');
+    const checkoutBtn = $('#checkout-btn');
+
+    // Add item to cart
+    $(document).on('click', '.product-item', function() {
+      const productName = $(this).data('name');
+      const productPrice = $(this).data('price');
+      const li = $('<li></li>').text(`${productName} - Rs ${productPrice}`);
+      cartItems.append(li).listview('refresh');
+      $('#cart-container').removeClass('hidden');
+    });
+
+    // Checkout
+    checkoutBtn.on('click', function() {
+      alert('Checkout completed!');
+      cartItems.empty().listview('refresh');
+      $('#cart-container').addClass('hidden');
+    });
+  });
+</script>
+
+</body>
+</html>

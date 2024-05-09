@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<div data-role="page">
+    <div data-role="header">
+        <h1>Feedback Form</h1>
+    </div>
+    <div data-role="content">
+        <form id="feedbackForm">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname"><br>
+            
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname">
+
+            <label for="flip-1">Satisfied?</label>
+            <select name="flip-1" id="flip-1" data-role="slider">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+
+            <input type="submit" value="Submit">
+        </form>
+        <div id="feedbackResponse"></div>
+    </div>
+</div>
+
+<script>
+    $(document).on("pagecreate", function() {
+        $("#feedbackForm").submit(function(event) {
+            event.preventDefault(); // Prevent default form submission
+            $("#feedbackResponse").text("Thank you for your response!");
+        });
+
+        $("#flip-1").on("change", function() {
+            var response = $(this).val() === "yes" ? "We're glad you're satisfied!" : "We're sorry for any inconvenience.";
+            $("#feedbackResponse").text(response);
+        });
+    });
+</script>
+
+</body>
+</html>
